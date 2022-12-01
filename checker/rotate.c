@@ -23,24 +23,38 @@ void	ft_ra(t_list **a)
 {
 	t_list	*temp;
 
-	if (!a || !*a || !(*a)->next)
-		return ;
-	temp = *a;
-	*a = temp->next;
-	(ft_lst_last(*a))->next = temp;
-	temp->next = NULL;
+	if (a && !*a && (*a)->next)
+	{
+		temp = *a;
+		*a = temp->next;
+		(ft_lst_last(*a))->next = temp;
+		temp->next = NULL;
+	}
+}
+
+void	ft_rr(t_list **a, t_list **b)
+{
+	ft_ra(a);
+	ft_ra(b);
 }
 
 void	ft_rra(t_list **a)
 {
 	t_list	*pre_last;
 
-	if (!a || !*a || !(*a)->next)
-		return ;
-	pre_last = *a;
-	while (pre_last->next->next)
-		pre_last = pre_last->next;
-	pre_last->next->next = *a;
-	*a = pre_last->next;
-	pre_last->next = NULL;
+	if (a && *a && !(*a)->next)
+	{
+		pre_last = *a;
+		while (pre_last->next->next)
+			pre_last = pre_last->next;
+		pre_last->next->next = *a;
+		*a = pre_last->next;
+		pre_last->next = NULL;
+	}
+}
+
+void	ft_rrr(t_list **a, t_list **b)
+{
+	ft_rra(a);
+	ft_rra(b);
 }

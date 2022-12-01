@@ -81,6 +81,7 @@ t_list	*ft_parse(int ac, char **strs)
 	t_list	*a;
 
 	i = 1;
+	a = NULL;
 	while (i < ac)
 	{
 		a = ft_lst_add_back(strs[i], a);

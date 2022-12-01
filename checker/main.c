@@ -12,19 +12,35 @@
 
 #include "checker.h"
 #include "instructions.h"
+#include <stdio.h>
 
 int main(int ac, char **av)
 {
-	t_list	*a;
-	t_list	*lst;
 
-	a = ft_parse(ac, av);
-	ft_rra(&a);
+	t_list *a;
+	t_list *b;
+	t_list *lst;
+
+	a = ft_parse(ac, av);	
+	b = NULL;
 	lst = a;
 	while (lst)
 	{
-		printf("i = %i\n", lst->nb);
+		printf("nb = %i\n", lst->nb);
 		lst = lst->next;
 	}
+	
+	// if (a && ft_read_instructions(&a, &b))
+	// {
+	// 	if (ft_is_sorted(a, b))
+	// 		write(1, "OK\n, 3");
+	// 	else
+	// 		write(1, "KO\n, 3");
+	// }
+	// else
+	// 	write(1, "KO\n, 3");
+	//printf("sorted = %i", ft_is_sorted(a, b));
 	ft_clear(a);
+	ft_clear(b);
+	return(1);
 }

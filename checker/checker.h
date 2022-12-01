@@ -22,6 +22,8 @@ typedef struct s_list
 }	t_list;
 
 t_list	*ft_parse(int ac, char **strs);
+int		ft_read(t_list **a, t_list **b);
+int		ft_is_sorted(t_list *a, t_list *b);
 void	*ft_clear(t_list *lst);
 
 #endif
